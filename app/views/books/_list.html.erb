@@ -1,13 +1,7 @@
-<h2>Users</h2>
+<h2>User info</h2>
+
+<% users.each do |user| %>
 <table>
-    <thead>
-        <tr>
-            <th>image</th>
-            <th>name</th>
-        </tr>
-    </thead>
-    
-    <% @users.each do |user| %>
     <tbody>
         <tr>
             <td><%= image_tag user.get_image %></td>
@@ -17,3 +11,13 @@
     </tbody>
     <% end %>
 </table>
+
+<h2>New book</h2>
+
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
