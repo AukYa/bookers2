@@ -14,4 +14,7 @@ class User < ApplicationRecord
     end
     image
   end
+  
+  validates :name, uniqueness: true, length: {in: 1..20}
+  validates :introduction, length: {maximum: 50}
 end
