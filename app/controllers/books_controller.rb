@@ -25,10 +25,11 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @new_book = Book.new
-    @user = current_user
+    # @user = current_user
   end
 
   def edit
+    @user = current_user
     book = Book.find(params[:id])
     unless book.user.id == current_user.id
       redirect_to books_path
